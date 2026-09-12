@@ -79,7 +79,12 @@ function more(){
 
 let imglist = [
   "lb1.jpeg",
-  "lula.jpeg"]
+  "lula.jpeg",
+"lb2.jpeg",
+"lula2.jpeg",
+"gl.jpeg",
+"b1.jpeg",
+"lula3.jpeg"]
 let imga = document.getElementById("imga")
 
 function sleep(ms) {
