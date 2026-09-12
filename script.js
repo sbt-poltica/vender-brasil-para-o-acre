@@ -81,10 +81,10 @@ let imglist = [
   "lb1.jpeg",
   "lula.jpeg",
 "lb2.jpeg",
-"lula2.jpeg",
+"lula2.jpg",
 "gl.jpeg",
-"b1.jpeg",
-"lula3.jpeg"]
+"b1.jpg",
+"lula3.jpg"]
 let imga = document.getElementById("imga")
 
 function sleep(ms) {
