@@ -1,0 +1,54 @@
+body{
+  padding:10px;
+  background: linear-gradient(yellow,blue,green);
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+}
+
+button{
+  background-color: red;
+  scale: 2;
+}
+
+img{
+margin:30px;
+}
+
+.hor{
+display:flex;
+flex-direction:row;
+}
+
+button:hover{
+  background-color: white;
+  color: red;
+}
+
+header{
+  background-color: green;
+  width: 100vw;
+}
+
+#title{
+  color: white;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#imga{
+  width: 200px;
+  height: 200px;
+}
+
+.commentitem{
+  background:linear-gradient(90deg,yellow,green);
+}
+
+.username{
+  font-weight: bold;
+  color: blue;
+  font-size: 20px;
+}
+
+
