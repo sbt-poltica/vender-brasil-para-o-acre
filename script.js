@@ -3,6 +3,60 @@ let morep = document.getElementById("morep")
 
 const espera = 6000
 let title = document.getElementById("title")
+let redirectlist = [
+    "https://youtu.be/CIF-r7F2clc?si=49zQvXLW2Smv11wH", //nau do canal
+    "https://youtu.be/LgRqYh7Aivg?si=QMzK2wNcwB8gP5wL", //aluno do dante
+    "https://youtu.be/ft17V2o96_Q?si=AUqV10F9yNPTCUrM", //debate 2022
+    "https://youtu.be/7EjIdjKNRls?t=75&si=TdzYu8hoFWt_IxRX", //sinonimos
+    "gato.mp4", //gato.mp4 
+    "https://youtu.be/bMN81g4VkpM?t=49&si=nz3X2BWfJx96E9pT", //alanzoka e zelda
+"https://youtu.be/zN1JsB4kg5Q?si=DabqLxDA8UiRT4mZ", //abroba com leite
+    "https://youtu.be/H9pbohMqmwU?t=19&si=i3rpXHEY7DGTWk-2" //robocop gay
+]
+
+let redirecttext = [
+    "Baixar Minecraft APK sem vírus",
+    "Baixe GTA VI GRÁTIS",
+    "Assistir A Volta dos Que Não Foram 2",
+    "CLIQUE AQUI E GANHE R$ 1.000",
+    "Seu dispositivo está com 67 vírus! Clique para eliminá-los",
+    "VOCÊ FOI SELECIONADO! Resgate seu prêmio agora",
+    "URGENTE: sua conta será bloqueada em 10 minutos",
+    "Parabéns! Você ganhou um iPhone 17",
+    "Última chance: clique aqui antes que expire",
+    "Seu celular está lento? CLIQUE AQUI PARA CORRIGIR",
+    "ATENÇÃO: foi detectada uma ameaça no seu dispositivo",
+    "Você é o visitante número 1. GANHE SEU PRÊMIO",
+    "Baixe agora o aplicativo que deixa seu celular 10x mais rápido",
+    "Você tem um reembolso de R$ 2.847 disponível",
+    "Seu pacote está aguardando confirmação. Clique aqui",
+    "Sua conta foi selecionada para receber um benefício",
+    "DESCUBRA QUEM VISITOU SEU PERFIL",
+    "Ganhe Robux grátis! Clique para resgatar",
+    "V-Bucks GRÁTIS! Resgate antes que acabe",
+    "Netflix grátis por 1 ano — clique para ativar",
+    "ATUALIZAÇÃO OBRIGATÓRIA: clique para continuar",
+    "Seu armazenamento está 99% cheio! Resolva agora",
+    "Detectamos atividades suspeitas na sua conta",
+    "Você ganhou uma chave exclusiva! Clique para abrir",
+    "OFERTA RELÂMPAGO: 90% de desconto somente agora",
+    "Seu antivírus encontrou 12 ameaças!",
+    "Clique aqui para descobrir seu resultado",
+    "Você foi escolhido entre 10.000 pessoas",
+    "Seu cadastro está incompleto. Atualize agora",
+    "ALERTA DE SEGURANÇA: ação necessária imediatamente",
+    "Baixe o GTA VI Mobile oficial",
+    "Minecraft Premium grátis por tempo limitado",
+    "Ganhe dinheiro respondendo 3 perguntas",
+    "Você tem uma mensagem secreta esperando",
+    "Clique aqui e descubra o que aconteceu",
+    "Seu navegador precisa ser atualizado AGORA",
+    "Parabéns! Você desbloqueou uma recompensa secreta",
+    "Seu dispositivo foi comprometido! Verifique agora",
+    "Resgate seus R$ 500 antes que desapareçam",
+    "VOCÊ NÃO VAI ACREDITAR NO QUE ACONTECEU"
+];
+
 
 let commentlist = [
   ["@lucas_oliveira", "COMO ASSIM O ACRE COMPROU O BRASIL????? EU SAÍ POR 10 MINUTOS E A REALIDADE DESANDOU"],
@@ -129,3 +183,68 @@ for (let i = 0; i < 10; i++) {
   addComment(randomComment[0], randomComment[1]);
   commentlist.splice(randomIndex, 1); // Remove the comment to avoid duplicates
 }
+
+function redirect(){
+window.open(redirectlist[Math.floor(Math.random()*redirectlist.length)],"_blank")
+}
+
+function criarPopup() {
+    const popup = document.createElement("div");
+    popup.className = "popup";
+
+    const section = document.createElement("section");
+
+    const closebutton = document.createElement("button");
+    closebutton.className = "closebutton";
+    closebutton.textContent = "X";
+
+    const texto = document.createElement("p");
+    texto.textContent = redirecttext[Math.floor(Math.random()*redirecttext.length)];
+
+    const confirmbutton = document.createElement("button");
+    confirmbutton.className = "confirmbutton";
+    confirmbutton.textContent = "aqui";
+
+    confirmbutton.onclick =()=> {
+        redirect();
+        popup.remove()
+    };
+
+    closebutton.onclick = () => {
+        popup.remove();
+    };
+
+    section.appendChild(closebutton);
+
+    popup.appendChild(section);
+    popup.appendChild(texto);
+    popup.appendChild(confirmbutton);
+    popup.style.left = `${Math.random() * 80 + 10}%`;
+popup.style.top = `${Math.random() * 80 + 10}%`;
+    popup.style.backgroundColor = `rgb(
+    ${Math.floor(Math.random() * 156) + 100},
+    ${Math.floor(Math.random() * 156) + 100},
+    ${Math.floor(Math.random() * 156) + 100}
+)`;
+    document.body.appendChild(popup);
+}
+
+// function executar10vezes(funcao)
+function spam(funcao) {
+    let contador = 0;
+
+    function executar() {
+        funcao();
+        contador++;
+
+        if (contador < 20) {
+            setTimeout(executar, 200);
+        }
+    }
+
+    executar();
+}
+
+setInterval(criarPopup,5000)
+
+setTimeout(()=>{spam(criarPopup)},20000)

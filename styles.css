@@ -51,4 +51,25 @@ header{
   font-size: 20px;
 }
 
+.popup{
+    display:flex;
+    flex-direction: column;
+    position:fixed;
+    background-color:white;
+    padding:6px;
+    scale:2;
+}
 
+.confirmbutton{
+    background-color:green;
+    scale:1;
+}
+
+.closebutton{
+    background-color:red;
+    width: 15px;
+    height: 15px;
+    color:white;
+    text-align: center;
+    justify-content: center;
+}
